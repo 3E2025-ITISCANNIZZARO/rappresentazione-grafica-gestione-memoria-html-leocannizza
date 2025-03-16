@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulazione Memoria</title>
+    <style>
+        /* CSS semplificato */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .legend {
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 450px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .legend h2 {
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        .legend p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .memory {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .segment {
+            background: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+
+        .heap-item, .stack-item {
+            margin: 10px 0;
+        }
+
+        .heap-block, .stack-frame {
+            padding: 10px;
+            margin-top: 8px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        input[type="checkbox"]:checked ~ .heap-block,
+        input[type="checkbox"]:checked ~ .stack-frame {
+            opacity: 1;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Visualizzazione della Memoria</h1>
+
+    <div class="legend">
+        <h2>Legenda</h2>
+        <p><strong>Text Segment:</strong> Contiene il codice eseguibile.</p>
+        <p><strong>Data Segment:</strong> Contiene variabili globali e statiche.</p>
+        <p><strong>Heap:</strong> Memoria dinamica allocata durante l'esecuzione.</p>
+        <p><strong>Stack:</strong> Memoria per le chiamate alle funzioni e le variabili locali.</p>
+    </div>
+
+    <div class="memory">
+        <div id="text-segment" class="segment">Text Segment (Codice Eseguibile)</div>
+        <div id="data-segment" class="segment">Data Segment (Variabili Globali e Statiche)</div>
+  
+        <div id="heap" class="segment">
+            <p>Heap (Memoria Dinamica)</p>
+
+            <div class="heap-item">
+                <input type="checkbox" id="alloc1">
+                <label for="alloc1">Allocare Memoria 1</label>
+                <div class="heap-block">Blocco 1</div>
+            </div>
+
+            <div class="heap-item">
+                <input type="checkbox" id="alloc2">
+                <label for="alloc2">Allocare Memoria 2</label>
+                <div class="heap-block">Blocco 2</div>
+            </div>
+
+            <div class="heap-item">
+                <input type="checkbox" id="alloc3">
+                <label for="alloc3">Allocare Memoria 3</label>
+                <div class="heap-block">Blocco 3</div>
+            </div>
+        </div>
+
+        <div id="stack" class="segment">
+            <p>Stack (Chiamate di Funzione)</p>
+
+            <div class="stack-item">
+                <input type="checkbox" id="call1">
+                <label for="call1">Chiamata Funzione 1</label>
+                <div class="stack-frame">Funzione 1</div>
+            </div>
+
+            <div class="stack-item">
+                <input type="checkbox" id="call2">
+                <label for="call2">Chiamata Funzione 2</label>
+                <div class="stack-frame">Funzione 2</div>
+            </div>
+
+            <div class="stack-item">
+                <input type="checkbox" id="call3">
+                <label for="call3">Chiamata Funzione 3</label>
+                <div class="stack-frame">Funzione 3</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
 

@@ -1,1 +1,135 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 20px;
+    color: #4CAF50;
+}
+
+.legend {
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-left: 8px solid #4CAF50;
+}
+
+.legend h2 {
+    font-size: 1.7em;
+    color: #4CAF50;
+}
+
+.legend p {
+    font-size: 1.1em;
+    margin: 8px 0;
+}
+
+.memory {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.segment {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.segment:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.memory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.memory-table th, .memory-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.memory-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.memory-table td {
+    background-color: #f9f9f9;
+}
+
+.heap-item, .stack-item {
+    margin: 15px 0;
+}
+
+.heap-block, .stack-frame {
+    padding: 15px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+input[type="checkbox"]:checked ~ .heap-block,
+input[type="checkbox"]:checked ~ .stack-frame {
+    opacity: 1;
+    transform: scale(1);
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.heap-block:hover, .stack-frame:hover {
+    background-color: #388e3c;
+}
+
+.heap-error {
+    background-color: darkred;
+    color: white;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
 
